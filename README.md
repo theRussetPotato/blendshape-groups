@@ -1,10 +1,10 @@
 # Blendshape Groups
 
-An api to expose blendShape groups.
+A simple library to expose blendShape groups.
 
 BlendShape groups have absolutely no access point with Maya's existing apis, except from a few obscure mel commands.<br>
 Though these mel commands completely rely on Shape Editor selection, making it impractical to write code with it.<br>
-This class exposes methods to easily modify and manage a blendShape's groups.
+This library exposes methods to easily modify and manage a blendShape's groups.
 
 ## Installation
 
@@ -12,7 +12,7 @@ Simply put the script where your PYTHON path is pointing to, so that the module 
 
 ## Supported versions
 
-This tool was tested in Maya 2018 Extension 4.<br>
+This library was tested in Maya 2018 Extension 4.<br>
 It was also written to be compatible for both Python 2 and 3, so it should work with Maya 2017 and above.
 
 ## Usage
