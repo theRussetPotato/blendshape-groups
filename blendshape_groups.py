@@ -1,9 +1,9 @@
 """
-An api to expose blendShape groups.
+A simple library to expose blendShape groups.
 
 BlendShape groups have absolutely no access point with Maya's existing apis, except from a few obscure mel commands.
 Though these mel commands completely rely on Shape Editor selection, making it impractical to write code with it.
-This class exposes methods to easily modify and manage a blendShape's groups.
+This library exposes methods to easily modify and manage a blendShape's groups.
 
 Author:
     Jason Labbe
