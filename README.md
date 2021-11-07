@@ -37,6 +37,9 @@ for name, index in food.items():
     cmds.aliasAttr(name, "{bs}.w[{idx}]".format(bs=blendshape, idx=index))
 ```
 
+![shapeEditorExample](https://user-images.githubusercontent.com/14979497/140651021-e3c43cdc-456a-49cf-b13c-9a1e41aa3f1c.jpg)<br>
+_What example above creates in the Shape Editor_
+
 Pass the blendShape to the class:
 ```python
 shape_grps = BlendShapeGroups(blendshape)
@@ -101,6 +104,9 @@ shape_grps.delete_grp(veggies_index)
 # Delete 'banana' target by using its index.
 shape_grps.delete_target(food["banana"])
 ```
+
+![shape_editor_groups](https://user-images.githubusercontent.com/14979497/140651117-ab24826c-96a9-4cf4-a34a-a7e84f1fa0e4.jpg)<br>
+_Final result with new groups in the Shape Editor_
 
 ## Reporting a bug / Requesting a feature
 
