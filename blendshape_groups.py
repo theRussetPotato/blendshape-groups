@@ -57,7 +57,7 @@ class BlendShapeGroups(object):
 
     def _grp_exists(self, index):
         """Checks if the group at the supplied index is valid."""
-        attrs = cmds.listAttr("{}.targetDirectory".format(self._blendshape), multi=True)
+        attrs = cmds.listAttr("{}.targetDirectory".format(self._blendshape), multi=True) or []
         grp_attr = "targetDirectory[{}]".format(index)
         return grp_attr in attrs
 
@@ -85,7 +85,7 @@ class BlendShapeGroups(object):
 
     def _grp_iterator(self):
         """An iterator to go through all groups with a for loop."""
-        for attr in cmds.listAttr("{}.targetDirectory".format(self._blendshape), multi=True):
+        for attr in cmds.listAttr("{}.targetDirectory".format(self._blendshape), multi=True) or []:
             if len(attr.split(".")) == 1:
                 yield self._extract_index(attr)
 
@@ -242,7 +242,7 @@ class BlendShapeGroups(object):
         """Fetches a list of valid target indices."""
         return [
             self._extract_index(attr)
-            for attr in cmds.listAttr("{}.parentDirectory".format(self._blendshape), multi=True)
+            for attr in cmds.listAttr("{}.parentDirectory".format(self._blendshape), multi=True) or []
         ]
 
     def get_grp_target_indices(self, grp_index):
@@ -254,6 +254,14 @@ class BlendShapeGroups(object):
             for index in self._get_grp_children(grp_index)
             if index >= 0
         ]
+
+    def find_grp(self, grp_name):
+        """Searches groups and returns its index if it matches the supplied name.
+        Returns None if nothing is found.
+        """
+        for grp_index in self:
+            if grp_name == self.get_grp_name(grp_index):
+                return grp_index
 
     def delete_target(self, index):
         """Deletes a target at the supplied index."""
